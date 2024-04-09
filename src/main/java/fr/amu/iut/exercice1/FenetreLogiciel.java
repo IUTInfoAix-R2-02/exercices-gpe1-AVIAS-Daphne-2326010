@@ -45,7 +45,10 @@ public class FenetreLogiciel extends Application {
         Label text = new Label("Ceci est un label de bas de page");
         lowMenu.getChildren().addAll(text);
 
-        root.setBottom(lowMenu);
+        VBox sepLow = new VBox();
+        sepLow.getChildren().addAll(new Separator(), lowMenu);
+
+        root.setBottom(sepLow);
 
         // Création conteneur : gauche
         BorderPane border = new BorderPane();
@@ -103,9 +106,6 @@ public class FenetreLogiciel extends Application {
         centre.setSpacing(10);
 
         root.setCenter(centre);
-
-        // Séparator
-        Separator separator = new Separator();
 
         // Ajout conteneur à la scene
         Scene scene = new Scene(root);

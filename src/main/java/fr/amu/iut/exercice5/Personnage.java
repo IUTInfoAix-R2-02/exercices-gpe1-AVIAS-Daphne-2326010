@@ -1,8 +1,12 @@
 package fr.amu.iut.exercice5;
 
+import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
+
+import java.util.Iterator;
 
 class Personnage extends Group {
     protected final static double LARGEUR_MOITIE_PERSONNAGE = 10;
@@ -26,7 +30,9 @@ class Personnage extends Group {
 
         //déplacement <----
         if (getLayoutX() >= LARGEUR_PERSONNAGE) {
+            double x = getLayoutX();
             setLayoutX(getLayoutX() - LARGEUR_PERSONNAGE);
+            if (dansObstacle()) setLayoutX(x);
         }
         if (!direction.equals("gauche")) {
             direction = "gauche";
@@ -41,7 +47,9 @@ class Personnage extends Group {
         //    ****
         //déplacement ---->
         if (getLayoutX() < largeurJeu - LARGEUR_PERSONNAGE) {
+            double x = getLayoutX();
             setLayoutX(getLayoutX() + LARGEUR_PERSONNAGE);
+            if (dansObstacle()) setLayoutX(x);
         }
         if (!direction.equals("droite")) {
             direction = "droite";
@@ -55,7 +63,9 @@ class Personnage extends Group {
         //   *  |  *
         //    *****
     if (getLayoutY() < hauteurJeu - LARGEUR_PERSONNAGE){
+        double y = getLayoutY();
         setLayoutY(getLayoutY() + LARGEUR_PERSONNAGE);
+        if (dansObstacle()) setLayoutY(y);
     }
     if (!direction.equals("haut")){
         direction = "haut";
@@ -69,7 +79,9 @@ class Personnage extends Group {
         //   *     *
         //    *****
         if (getLayoutY() >= LARGEUR_PERSONNAGE) {
+            double y = getLayoutY();
             setLayoutY(getLayoutY() - LARGEUR_PERSONNAGE);
+            if (dansObstacle()) setLayoutY(y);
         }
         if (!direction.equals("bas")){
             direction = "bas";
@@ -82,4 +94,16 @@ class Personnage extends Group {
                 || autrePersonnage.getBoundsInParent().contains(getBoundsInParent());
     }
 
+    boolean dansObstacle(){
+        Iterator<Obstacle> it = JeuMain.obstacles.iterator();
+        Bounds posPerso = getBoundsInParent();
+        while(it.hasNext()){
+            Bounds posObstacle = it.next().getBoundsInParent();
+            if (posObstacle.getMinX() <= posPerso.getMinX()
+            && posPerso.getMaxX() <= posObstacle.getMaxX()
+            && posObstacle.getMinY() <= posPerso.getMinY()
+            && posObstacle.getMaxY() >= posPerso.getMaxY()) return true;
+        }
+        return false;
+    }
 }

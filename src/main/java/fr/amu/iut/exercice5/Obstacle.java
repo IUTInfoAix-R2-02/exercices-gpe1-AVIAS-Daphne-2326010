@@ -10,5 +10,4 @@ public class Obstacle extends Rectangle {
         super(x, y, l, h);
         super.setFill(Color.ROSYBROWN);
     }
-
 }

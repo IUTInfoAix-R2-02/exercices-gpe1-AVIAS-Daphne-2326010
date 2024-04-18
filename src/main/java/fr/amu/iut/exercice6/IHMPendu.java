@@ -91,9 +91,10 @@ public class IHMPendu extends Application {
         primaryStage.show();
     }
 
+    //vérifie si la lettre choisi est dans le mot
     public void lettreDansMot(Button btn){
-        char l = btn.getText().charAt(0);
-        char[] lettresDuMot = mot.toCharArray();
+        char l = btn.getText().charAt(0);       //on récupère la lettre choisie dans une variable
+        char[] lettresDuMot = mot.toCharArray();        //on transforme le mot en chaine de lettres
         char[] lettresDuMotCache = motCache.toCharArray();
         for(int i=0; i<lettresDuMot.length; ++i){
             if(lettresDuMot[i] == l){

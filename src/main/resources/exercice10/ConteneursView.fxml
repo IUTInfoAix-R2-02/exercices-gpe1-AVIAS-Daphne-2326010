@@ -1,2 +1,92 @@
-<?import javafx.scene.layout.BorderPane?>
-<BorderPane></BorderPane>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <MenuBar prefWidth="155.0" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <HBox prefHeight="30.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="30.0" prefWidth="839.0">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="213.0" text="Ceci est un label de bas de page" />
+               </children>
+            </VBox>
+         </children></HBox>
+   </bottom>
+   <left>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="170.0" prefWidth="86.0" spacing="10.0">
+               <children>
+                  <Label text="Boutons :" />
+                  <Button mnemonicParsing="false" prefWidth="77.0" text="Bouton 1" />
+                  <Button mnemonicParsing="false" text="Bouton 2" />
+                  <Button layoutX="10.0" layoutY="50.0" mnemonicParsing="false" prefWidth="77.0" text="Bouton 3" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+         </children>
+      </HBox>
+   </left>
+   <center>
+       <VBox alignment="CENTER">
+      <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="106.0" prefWidth="280.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="81.0" minWidth="10.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name: " GridPane.valignment="CENTER" />
+            <Label text="Email:" GridPane.rowIndex="1" />
+            <Label text="Password:" GridPane.rowIndex="2" />
+            <TextField GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <VBox prefHeight="200.0" prefWidth="100.0" />
+         </children>
+      </GridPane>
+         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="708.0" spacing="10.0">
+            <children>
+               <Button mnemonicParsing="false" text="Submit" />
+               <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancel" />
+            </children></HBox>
+       </VBox>
+   </center>
+</BorderPane>

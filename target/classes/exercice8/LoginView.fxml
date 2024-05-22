@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" gridLinesVisible="true" hgap="100" styleClass="root" stylesheets="/exercice8/Login.css" vgap="20" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.amu.iut.exercice8.LoginControl">
+<GridPane alignment="CENTER" gridLinesVisible="false" hgap="100" styleClass="root" stylesheets="/exercice8/Login.css" vgap="20" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.amu.iut.exercice8.LoginControl">
    <Text id="welcome-text" text="Welcome" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
    <Label text="User Id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />

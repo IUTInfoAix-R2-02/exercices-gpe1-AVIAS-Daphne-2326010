@@ -1,6 +1,11 @@
 package fr.amu.iut.exercice1;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -32,7 +37,9 @@ public class Palette extends Application {
     private HBox boutons;
 
     private Label texteDuBas;
-
+    private IntegerProperty nbFois;
+    private StringProperty message;
+    private StringProperty couleurPanneau;
 
     @Override
     public void start(Stage primaryStage) {
@@ -58,6 +65,33 @@ public class Palette extends Application {
         bleu = new Button("Bleu");
 
         /* VOTRE CODE ICI */
+
+        nbFois = new SimpleIntegerProperty();
+        message = new SimpleStringProperty();
+        couleurPanneau = new SimpleStringProperty("#000000");
+
+        vert.setOnAction(event -> {
+            ++nbVert;
+            nbFois.set(nbVert);
+            message.setValue("Vert");
+            couleurPanneau.setValue("#00FF00");
+        });
+        rouge.setOnAction(event -> {
+            ++nbRouge;
+            nbFois.set(nbRouge);
+            message.setValue("Rouge");
+            couleurPanneau.setValue("#FF0000");
+        });
+        bleu.setOnAction(event -> {
+            ++nbBleu;
+            nbFois.set(nbBleu);
+            message.setValue("Bleu");
+            couleurPanneau.setValue("#0000FF");
+        });
+
+        texteDuHaut.textProperty().bind(Bindings.concat(message, " choisi ", nbFois, "fois"));
+        panneau.styleProperty().bind(Bindings.concat("-fx-background-color: ", couleurPanneau));
+
 
         boutons.getChildren().addAll(vert, rouge, bleu);
 

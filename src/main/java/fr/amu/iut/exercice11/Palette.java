@@ -105,16 +105,20 @@ public class Palette extends Application {
     private void createBindings(){
         BooleanProperty pasEncoreDeClic = new SimpleBooleanProperty();
         pasEncoreDeClic.bind(Bindings.equal(nbFois,0));         // pasEncoreDeClic change lorsque nbFois !=0
+
         texteDuHaut.textProperty().bind(
                 Bindings.when(pasEncoreDeClic)
                         .then("Cliquez sur un bouton")
                         .otherwise(Bindings.concat(message, " choisi ", nbFois, " fois") ));
+
         panneau.styleProperty().bind(
                 Bindings.concat("-fx-background-color: ", couleurPanneau));
+
         texteDuBas.textProperty().bind(
                 Bindings.when(pasEncoreDeClic)
                         .then("")
                         .otherwise(Bindings.concat("Le ", message, " est une jolie couleur !")));
+
         texteDuBas.styleProperty().bind(
                 Bindings.concat("-fx-text-fill: ", couleurPanneau)
         );

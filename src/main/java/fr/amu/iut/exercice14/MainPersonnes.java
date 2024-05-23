@@ -1,5 +1,6 @@
-package fr.amu.iut.exercice4;
+package fr.amu.iut.exercice14;
 
+import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.IntegerBinding;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -20,10 +21,27 @@ public class MainPersonnes {
 
         lesPersonnes = new SimpleListProperty<>(FXCollections.observableArrayList());
         ageMoyen = new SimpleIntegerProperty(0);
+/*
+        calculAgeMoyen = new DoubleBinding(){
+            {
+                this.bind(lesPersonnes,ageMoyen);
+            }
+            @Override
+            //protected double computeValue(){
+                //int sum = 0;
+                //for(Personne personne : lesPersonnes){
+                //    sum += personne.getAge();
+                //}
+                //return sum/lesPersonnes.size();
+                //double tot = sum/lesPersonnes.size();
+            }
+        };
 
         question1();
 //        question2();
     }
+    }
+ */
 
     public static void question1() {
         System.out.println("1 - L'age moyen est de " + ageMoyen.getValue() + " ans");
@@ -54,4 +72,3 @@ public class MainPersonnes {
     }
 
 }
-
